@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Compass | Master Your Wealth</title>
+    <meta name="description" content="Navigate your financial future with expert insights on investing, budgeting, and USA market trends.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <meta name="google-site-verification" content="6glFl41C9KVKM3b9w3oD15ZUaf-02j_KN9PMXoesn6I" />
+</head>
+<body class="antialiased">
+    <!-- 3D Canvas Background -->
+    <div id="canvas-container"></div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass mt-4 mx-auto max-w-6xl left-0 right-0 px-6 py-4 flex justify-between items-center">
+        <div class="text-2xl font-bold hero-text">FinanceCompass</div>
+        <div class="hidden md:flex space-x-8 font-medium">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="#articles" class="nav-link">Investing</a>
+            <a href="#articles" class="nav-link">Budgeting</a>
+            <a href="about.html" class="nav-link">About</a>
+        </div>
+        <a href="contact.html" class="btn-primary px-6 py-2 rounded-full font-bold text-white">Join Us</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-text opacity-0 translate-y-10" id="hero-title">
+            Navigate Your Wealth
+        </h1>
+        <p class="text-xl md:text-2xl text-slate-300 max-w-2xl mb-10 opacity-0 translate-y-10" id="hero-subtitle">
+            Smart financial decisions for the modern world. Expert guides on USA markets, saving, and retirement.
+        </p>
+        <div class="flex gap-4 opacity-0 translate-y-10" id="hero-btns">
+            <a href="#articles" class="btn-primary px-8 py-3 rounded-full text-lg font-bold">Read Articles</a>
+            <a href="about.html" class="glass px-8 py-3 rounded-full text-lg font-bold border border-white/20">Learn More</a>
+        </div>
+    </header>
+
+    <!-- Market Highlight / AdSense Ready Container -->
+    <div class="max-w-4xl mx-auto my-12 glass p-6 text-center border border-cyan-500/20 rounded-2xl">
+        <div class="inline-flex items-center space-x-2 text-cyan-400 text-sm font-semibold mb-2">
+            <span>🔥</span>
+            <span>2026 US Financial Benchmark</span>
+        </div>
+        <p class="text-slate-300 text-sm">Average High-Yield Savings Rate: <span class="text-emerald-400 font-bold">4.85% APY</span> | S&amp;P 500 YTD Return: <span class="text-emerald-400 font-bold">+14.2%</span></p>
+    </div>
+
+    <!-- Articles Grid -->
+    <section id="articles" class="max-w-6xl mx-auto px-6 py-20">
+        <h2 class="text-4xl font-bold mb-12 text-center">Featured Insights</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Article 1 -->
+            <a href="articles/investing-2026.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=800&q=80" alt="Investing Guide" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Investing</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">How to Start Investing in 2026: A Beginner's Guide</h3>
+                <p class="text-slate-400 text-sm">Everything you need to know about stocks, ETFs, and building a portfolio from scratch.</p>
+            </a>
+
+            <!-- Article 2 -->
+            <a href="articles/saving-tips.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=800&q=80" alt="Saving Tips" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Saving</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Top 10 High-Yield Savings Accounts in the USA</h3>
+                <p class="text-slate-400 text-sm">Maximize your interest rates with these vetted financial institutions for 2026.</p>
+            </a>
+
+            <!-- Article 3 -->
+            <a href="articles/credit-score.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1563013544-824ae1d704d3?auto=format&fit=crop&w=800&q=80" alt="Credit Score" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Credit</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">How to Boost Your Credit Score Fast</h3>
+                <p class="text-slate-400 text-sm">Proven strategies to improve your score and unlock better loan rates.</p>
+            </a>
+
+            <!-- Article 4 -->
+            <a href="articles/side-hustles-2026.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Side Hustles" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Income</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">7 High-Paying Side Hustles in 2026</h3>
+                <p class="text-slate-400 text-sm">Legitimate remote side hustles in the USA to earn $1,000+ extra per month.</p>
+            </a>
+
+            <!-- Article 5 -->
+            <a href="articles/retirement-401k-ira.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Retirement" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Retirement</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">401(k) vs. Roth IRA (2026 Comparison)</h3>
+                <p class="text-slate-400 text-sm">Maximize tax advantages, employer matches, and build lasting wealth.</p>
+            </a>
+
+            <!-- Article 6 -->
+            <a href="articles/budgeting-50-30-20.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80" alt="Budgeting" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Budgeting</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">The 50/30/20 Budgeting Rule Blueprint</h3>
+                <p class="text-slate-400 text-sm">Master your monthly take-home pay with zero restrictive spreadsheets.</p>
+            </a>
+            <!-- Article 7 -->
+            <a href="articles/crypto-tax-2026.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1621416894569-0f39ed31d247?auto=format&fit=crop&w=800&q=80" alt="Crypto" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Crypto</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Understanding Crypto Tax Rules in the USA for 2026</h3>
+                <p class="text-slate-400 text-sm">Everything you need to know about reporting gains, staking income, and IRS compliance.</p>
+            </a>
+
+            <!-- Article 8 -->
+            <a href="articles/real-estate-investing.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <span class="text-4xl">🏠</span>
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Real Estate</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Real Estate vs. Stocks: Where to Invest in 2026?</h3>
+                <p class="text-slate-400 text-sm">Weighing the pros and cons of cash flow, liquidity, and leverage for your portfolio.</p>
+            </a>
+
+            <!-- Article 9 -->
+            <a href="articles/ai-tools-personal-finance-2026.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80" alt="AI Finance Tools" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">AI Tools</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Top 5 AI Tools for Personal Finance in 2026</h3>
+                <p class="text-slate-400 text-sm">Managing money with automated budgeting insights and predictive forecasting.</p>
+            </a>
+
+            <!-- Article 10 -->
+            <a href="articles/high-yield-savings-guide-2026.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=800&q=80" alt="High-Yield Savings" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Savings</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">High-Yield Savings Accounts: Complete 2026 Guide</h3>
+                <p class="text-slate-400 text-sm">Maximize your interest returns with compounding rates and liquidity.</p>
+            </a>
+
+            <!-- Article 11 -->
+            <a href="articles/digital-assets-taxes-2026.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=800&q=80" alt="Digital Assets and Taxes" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Taxes</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">Understanding Digital Assets and Web3 Taxes</h3>
+                <p class="text-slate-400 text-sm">A guide to reporting digital asset capital gains, income, and transactions.</p>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 glass mt-20">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div>
+                <div class="text-2xl font-bold hero-text mb-4">FinanceCompass</div>
+                <p class="text-slate-400">Guiding you through the complex world of finance with clarity and confidence.</p>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <h4 class="font-bold mb-2">Links</h4>
+                <a href="privacy.html" class="text-slate-400 hover:text-white">Privacy Policy</a>
+                <a href="terms.html" class="text-slate-400 hover:text-white">Terms of Service</a>
+                <a href="about.html" class="text-slate-400 hover:text-white">About Us</a>
+            </div>
+            <div class="flex flex-col space-y-2">
+                <h4 class="font-bold mb-2">Contact</h4>
+                <p class="text-slate-400">support@financecompass.com</p>
+                <div class="flex space-x-4 mt-4">
+                    <span class="text-2xl cursor-pointer">🐦</span>
+                    <span class="text-2xl cursor-pointer">📘</span>
+                    <span class="text-2xl cursor-pointer">📸</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-12 text-slate-600 text-sm">
+            © 2026 FinanceCompass. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Three.js Background Script -->
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const geometry = new THREE.IcosahedronGeometry(1, 1);
+        const material = new THREE.MeshBasicMaterial({ color: 0x4facfe, wireframe: true });
+        
+        const particles = [];
+        for(let i = 0; i < 50; i++) {
+            const mesh = new THREE.Mesh(geometry, material);
+            mesh.position.x = (Math.random() - 0.5) * 20;
+            mesh.position.y = (Math.random() - 0.5) * 20;
+            mesh.position.z = (Math.random() - 0.5) * 20;
+            mesh.rotation.x = Math.random() * 2 * Math.PI;
+            mesh.rotation.y = Math.random() * 2 * Math.PI;
+            scene.add(mesh);
+            particles.push(mesh);
+        }
+
+        camera.position.z = 5;
+
+        function animate() {
+            requestAnimationFrame(animate);
+            particles.forEach(p => {
+                p.rotation.x += 0.001;
+                p.rotation.y += 0.001;
+                p.position.y += 0.002;
+                if(p.position.y > 10) p.position.y = -10;
+            });
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // GSAP Animations
+        gsap.to("#hero-title", { opacity: 1, y: 0, duration: 1, delay: 0.5 });
+        gsap.to("#hero-subtitle", { opacity: 1, y: 0, duration: 1, delay: 0.8 });
+        gsap.to("#hero-btns", { opacity: 1, y: 0, duration: 1, delay: 1.1 });
+    </script>
+</body>
+</html>
