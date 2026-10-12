@@ -33,7 +33,22 @@ topics = [
     "tokenized-real-world-assets-2026",
 ]
 
+import random
+
+# List of diverse high-quality financial Unsplash images
+IMAGES = [
+    "https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1526304640581-d334cdbbf45e?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1553729459-efe14ef6055d?auto=format&fit=crop&w=1200&q=80"
+]
+
 def generate_article(slug, title, body, published_date):
+    img_url = random.choice(IMAGES)
     html = f"""<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,7 +76,7 @@ def generate_article(slug, title, body, published_date):
             <h1 class="text-3xl md:text-5xl font-black mb-4 tracking-tight text-white leading-tight">{title}</h1>
             <p class="text-slate-400 text-sm mb-8">Published on: {published_date} | Written by: Finance Compass Research Team</p>
             
-            <img src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80" alt="{title}" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8 shadow-xl">
+            <img src="{img_url}" alt="{title}" class="w-full h-64 md:h-96 object-cover rounded-2xl mb-8 shadow-xl">
 
 {body}
         </article>
