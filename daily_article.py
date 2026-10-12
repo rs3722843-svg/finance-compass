@@ -91,52 +91,54 @@ def generate_article(slug, title, body, published_date):
 
 
 def main():
-    # Pick next available article
     existing = set()
     for f in os.listdir(ARTICLES_DIR):
         if f.endswith('.html'):
             existing.add(f)
 
-    # Find next number in sequence
     used = []
     for f in existing:
-        m = re.match(rf"daily-finance-tip-(\d+)", f)
+        m = re.match(r"daily-finance-tip-(\d+)", f)
         if m:
             used.append(int(m.group(1)))
-    next_num = max(used, default=0) + 1
+    
+    for i in range(5):
+        next_num = max(used, default=0) + 1
+        used.append(next_num)
 
-    title = f"Daily Finance Tip {next_num}: Smart Money Moves for 2026"
-    slug = f"daily-finance-tip-{next_num}"
-    published_date = datetime.now().strftime("%B %d, %Y")
+        topic_name = topics[(next_num - 1) % len(topics)]
+        title = f"Finance Guide {next_num}: {topic_name.replace('-', ' ').title()} for 2026"
+        slug = f"daily-finance-tip-{next_num}"
+        published_date = datetime.now().strftime("%B %d, %Y")
 
-    body = f"""            <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-6">
-                Welcome to your daily dose of financial wisdom from FinanceCompass. In today's article, we explore {title}. This comprehensive guide will help you make smarter decisions with your money.
+        body = f"""            <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-6">
+                Welcome to your daily finance insights from FinanceCompass. In today's deep dive, we explore {topic_name.replace('-', ' ')}. This essential guide covers everything you need to know to master your wealth in 2026.
             </p>
 
-            <h2 class="text-2xl font-bold text-white mt-10 mb-4 border-b border-slate-800 pb-2">Key Takeaways</h2>
+            <h2 class="text-2xl font-bold text-white mt-10 mb-4 border-b border-slate-800 pb-2">Key Strategies & Action Steps</h2>
             <ul class="list-disc pl-6 space-y-3 text-slate-300 mb-6">
-                <li>Understand the core principles of personal finance success.</li>
-                <li>Learn how to build wealth through disciplined saving and investing.</li>
-                <li>Discover actionable strategies to grow your income in 2026.</li>
+                <li>Analyze current market trends and economic forecasts for {topic_name.replace('-', ' ')}.</li>
+                <li>Implement disciplined budgeting and optimized asset allocation.</li>
+                <li>Avoid common financial pitfalls to protect and compound your net worth.</li>
             </ul>
 
-            <h2 class="text-2xl font-bold text-white mt-10 mb-4 border-b border-slate-800 pb-2">Why This Matters</h2>
+            <h2 class="text-2xl font-bold text-white mt-10 mb-4 border-b border-slate-800 pb-2">Expert Perspective</h2>
             <p class="text-slate-300 leading-relaxed mb-6">
-                Taking control of your finances is the most important decision you'll ever make. Whether you're just starting out or looking to optimize your portfolio, these tips will set you on the path to financial freedom.
+                Building long-term financial security requires consistent execution and informed decision-making. By focusing on {topic_name.replace('-', ' ')}, you position yourself ahead of economic shifts.
             </p>
 
-            <h2 class="text-2xl font-bold text-white mt-10 mb-4 border-b border-slate-800 pb-2">Start Today</h2>
+            <h2 class="text-2xl font-bold text-white mt-10 mb-4 border-b border-slate-800 pb-2">Next Steps</h2>
             <p class="text-slate-300 leading-relaxed mb-6">
-                Don't wait for the "perfect time" — it doesn't exist. Start implementing these strategies today and watch your financial confidence grow.
+                Take action today by reviewing your portfolio, updating your financial goals, and staying disciplined with your plan.
             </p>
 """
 
-    filepath = os.path.join(ARTICLES_DIR, f"{slug}.html")
-    with open(filepath, "w") as f:
-        f.write(generate_article(slug, title, body, published_date))
+        filepath = os.path.join(ARTICLES_DIR, f"{slug}.html")
+        with open(filepath, "w") as f:
+            f.write(generate_article(slug, title, body, published_date))
+        print(f"[SUCCESS] Article '{slug}' generated successfully.")
 
-    print(f"[SUCCESS] Article '{slug}' generated successfully.")
-    return filepath
+    return True
 
 
 if __name__ == "__main__":
