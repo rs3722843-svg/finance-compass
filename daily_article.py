@@ -7,7 +7,7 @@ import os
 import re
 from datetime import datetime
 
-BASE_DIR = "C:/Users/Track Computers/Desktop/finance-compass"
+BASE_DIR = "C:/Users/Track Computers/AppData/Local/hermes/projects/finance-compass"
 ARTICLES_DIR = BASE_DIR + "/articles"
 
 # Generate today's topic
