@@ -90,6 +90,34 @@ def generate_article(slug, title, body, published_date):
     return html
 
 
+def update_index_html(new_articles):
+    index_path = os.path.join(BASE_DIR, "index.html")
+    with open(index_path, "r", encoding="utf-8") as f:
+        content = f.read()
+
+    grid_marker = '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">'
+    pos = content.find(grid_marker)
+    if pos == -1:
+        return
+
+    insert_pos = pos + len(grid_marker)
+
+    cards_html = ""
+    for slug, title, img_url in new_articles:
+        cards_html += f"""
+            <a href="articles/{slug}.html" class="article-card glass p-6 block">
+                <div class="h-48 rounded-lg mb-4 overflow-hidden bg-slate-800 flex items-center justify-center">
+                    <img src="{img_url}" alt="{title}" class="w-full h-full object-cover">
+                </div>
+                <span class="text-primary font-bold text-sm uppercase">Finance Insight</span>
+                <h3 class="text-xl font-bold mt-2 mb-3">{title}</h3>
+                <p class="text-slate-400 text-sm">Expert financial strategies to build sustainable wealth and secure higher yields.</p>
+            </a>
+"""
+
+    new_content = content[:insert_pos] + cards_html + content[insert_pos:]
+    with open(index_path, "w", encoding="utf-8") as f:
+        f.write(new_content)
 def main():
     existing = set()
     for f in os.listdir(ARTICLES_DIR):
@@ -102,6 +130,7 @@ def main():
         if m:
             used.append(int(m.group(1)))
     
+    new_articles_created = []
     for i in range(5):
         next_num = max(used, default=0) + 1
         used.append(next_num)
@@ -110,6 +139,7 @@ def main():
         title = f"Finance Guide {next_num}: {topic_name.replace('-', ' ').title()} for 2026"
         slug = f"daily-finance-tip-{next_num}"
         published_date = datetime.now().strftime("%B %d, %Y")
+        img_url = random.choice(IMAGES)
 
         body = f"""            <p class="text-lg md:text-xl text-slate-300 leading-relaxed mb-6">
                 Welcome to your daily finance insights from FinanceCompass. In today's deep dive, we explore {topic_name.replace('-', ' ')}. This essential guide covers everything you need to know to master your wealth in 2026.
@@ -136,7 +166,12 @@ def main():
         filepath = os.path.join(ARTICLES_DIR, f"{slug}.html")
         with open(filepath, "w") as f:
             f.write(generate_article(slug, title, body, published_date))
+        
+        new_articles_created.append((slug, title, img_url))
         print(f"[SUCCESS] Article '{slug}' generated successfully.")
+
+    if new_articles_created:
+        update_index_html(new_articles_created)
 
     return True
 
